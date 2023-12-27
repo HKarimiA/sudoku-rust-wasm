@@ -60,8 +60,8 @@ document.getElementsByClassName("button-new")[0].onclick = function () {
 };
 
 document.getElementsByClassName("button-next-step")[0].onclick = function () {
-  const nestStep = sudokuObject.next_step();
-  if (!nestStep) {
+  const nextStep = sudokuObject.next_step();
+  if (!nextStep) {
     if (sudokuObject.has_won()) {
       alert("Cangratulations! You won!");
     } else {
@@ -69,9 +69,9 @@ document.getElementsByClassName("button-next-step")[0].onclick = function () {
     }
   } else {
     const inputField = document.getElementById(
-      `input-${nestStep.row}-${nestStep.col}`
+      `input-${nextStep.row}-${nextStep.col}`
     );
-    inputField.value = nestStep.value;
+    inputField.value = nextStep.value;
   }
 };
 
