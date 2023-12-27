@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudoku Rust-Wasm</title>
+    <link rel="stylesheet" href="sudoku-style.css" />
+  </head>
+  <body>
+    <noscript
+      >This page contains webassembly and javascript content, please enable
+      javascript in your browser.</noscript
+    >
+    <div class="container">
+      <table id="sudokuTable">
+        <!-- Sudoku grid will be generated dynamically here -->
+      </table>
+      <div class="button-container">
+        <button class="button-new">New</button>
+        <button class="button-next-step">Next step</button>
+        <button class="button-check">Check</button>
+      </div>
+    </div>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>

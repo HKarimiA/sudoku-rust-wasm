@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 3px solid black;
+    width: 100%;
+  }
+
+  td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  td.read-only {
+    background-color: #eee;
+  }
+
+  td input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1em;
+    text-align: center;
+    background-color: transparent;
+    margin-right: -20%;
+    outline: none;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .button-container button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 0 5px;
+    border-radius: 10px;
+  }
+
+  .border-right {
+    border-right: 3px solid black;
+  }
+
+  .border-bottom {
+    border-bottom: 3px solid black;
+  }
+  
+  .incorrect {
+    background-color: rgb(248, 110, 110);
+  }
