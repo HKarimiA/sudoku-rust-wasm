@@ -11,9 +11,10 @@ This project is a simple yet challenging Sudoku game. It generates random Sudoku
 
 ## Features
 
-- Random Puzzle Generation: Randomly generates Sudoku puzzles to ensure a unique and enjoyable experience every time.
-- Difficulty Levels: Aims to generate puzzles with varying difficulty levels to provide a challenge without sacrificing solvability.
-- WebAssembly Integration: Utilizes WebAssembly (Wasm) technology generated with <strong>wasm-pack</strong>, enabling direct usage from JavaScript files for enhanced performance and interaction.
+- **Random Puzzle Generation:** Randomly generates Sudoku puzzles to ensure a unique and enjoyable experience every time.
+- **Next step:** By clicking the "Next Step" button, users can reveal a cell that remains solvable by human logic, aiding progression through the Sudoku puzzle.
+- **Check:** Clicking the "Check" button highlights incorrect fields in red, providing immediate visual feedback to the user about incorrect entries in the Sudoku puzzle.
+- **WebAssembly Integration:** Utilizes WebAssembly (Wasm) technology generated with **wasm-pack**, enabling direct usage from JavaScript files for enhanced performance and interaction.
 
 ## 🚴 Usage
 
