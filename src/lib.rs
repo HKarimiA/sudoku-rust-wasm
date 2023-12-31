@@ -2,7 +2,6 @@ mod generator;
 mod models;
 
 use wasm_bindgen::prelude::*;
-use wasm_bindgen::JsValue;
 
 #[wasm_bindgen]
 pub struct Cell {
@@ -25,14 +24,13 @@ impl Sudoku {
         }
     }
 
-    pub fn get_puzzle(&self) -> Box<[JsValue]> {
+    pub fn get_puzzle(&self) -> Vec<u8> {
         self.sudoku
             .puzzle_sudoku
             .iter()
             .flatten()
-            .map(|x| x.to_string().into())
-            .collect::<Vec<JsValue>>()
-            .into_boxed_slice()
+            .map(|x| *x)
+            .collect::<Vec<u8>>()
     }
 
     pub fn input(&mut self, row: usize, col: usize, value: u8) {
@@ -43,16 +41,12 @@ impl Sudoku {
         self.sudoku.has_won()
     }
 
-    pub fn incorrect_fields(&self) -> Box<[JsValue]> {
+    pub fn incorrect_fields(&self) -> Vec<usize> {
         self.sudoku
             .incorrect_fields()
             .iter()
-            .map(|&(row, col)| {
-                let index = row * 9 + col;
-                index.to_string().into()
-            })
-            .collect::<Vec<JsValue>>()
-            .into_boxed_slice()
+            .map(|&(row, col)| row * 9 + col)
+            .collect::<Vec<usize>>()
     }
 
     pub fn next_step(&mut self) -> Option<Cell> {
