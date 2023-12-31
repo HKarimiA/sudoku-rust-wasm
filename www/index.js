@@ -1,21 +1,21 @@
 import { Sudoku } from "sudoku-rust-wasm";
 
-let sudokuObject = new Sudoku();
+let sudoku = new Sudoku();
 
 function onInput(event, row, col) {
   if (event.target.value > 1) {
     event.target.value = event.target.value.slice(0, 1);
   }
-  sudokuObject.input(row, col, event.target.value || 0);
+  sudoku.input(row, col, event.target.value || 0);
   document.getElementById(`cell-${row}-${col}`).classList.remove("incorrect");
-  if (sudokuObject.has_won()) {
+  if (sudoku.has_won()) {
     alert("You won!");
   }
 }
 
 function initializeSudoku() {
-  const newSudoku = Array.from({ length: 9 }, (_, i) =>
-    sudokuObject.get_puzzle().slice(i * 9, (i + 1) * 9)
+  const puzzleFields = Array.from({ length: 9 }, (_, i) =>
+    sudoku.get_puzzle().slice(i * 9, (i + 1) * 9)
   );
   const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
@@ -27,7 +27,7 @@ function initializeSudoku() {
       const cell = row.insertCell();
       cell.classList.add("cell");
       cell.id = `cell-${i}-${j}`;
-      if (newSudoku[i][j] === "0") {
+      if (puzzleFields[i][j] === 0) {
         const input = document.createElement("input");
         input.id = `input-${i}-${j}`;
         input.setAttribute("type", "number");
@@ -39,7 +39,7 @@ function initializeSudoku() {
         }
         cell.appendChild(input);
       } else {
-        cell.textContent = newSudoku[i][j];
+        cell.textContent = puzzleFields[i][j];
         cell.classList.add("read-only");
       }
       if ((j + 1) % 3 === 0 && j < 8) {
@@ -55,14 +55,14 @@ function initializeSudoku() {
 
 document.getElementsByClassName("button-new")[0].onclick = function () {
   document.getElementById("sudokuTable").innerHTML = "";
-  sudokuObject = new Sudoku();
+  sudoku = new Sudoku();
   initializeSudoku();
 };
 
 document.getElementsByClassName("button-next-step")[0].onclick = function () {
-  const nextStep = sudokuObject.next_step();
+  const nextStep = sudoku.next_step();
   if (!nextStep) {
-    if (sudokuObject.has_won()) {
+    if (sudoku.has_won()) {
       alert("Cangratulations! You won!");
     } else {
       alert("Next step not found! Check if all your numbers are correct.");
@@ -76,7 +76,7 @@ document.getElementsByClassName("button-next-step")[0].onclick = function () {
 };
 
 document.getElementsByClassName("button-check")[0].onclick = function () {
-  sudokuObject.incorrect_fields().forEach((index) => {
+  sudoku.incorrect_fields().forEach((index) => {
     const row = Math.floor(index / 9);
     const col = index % 9;
     const cell = document.getElementById(`cell-${row}-${col}`);
