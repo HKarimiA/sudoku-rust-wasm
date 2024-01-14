@@ -4,7 +4,7 @@ mod models;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub struct Cell {
+pub struct Field {
     pub row: usize,
     pub col: usize,
     pub value: u8,
@@ -49,11 +49,11 @@ impl Sudoku {
             .collect::<Vec<usize>>()
     }
 
-    pub fn next_step(&mut self) -> Option<Cell> {
+    pub fn next_step(&mut self) -> Option<Field> {
         Some(
             self.sudoku
                 .next_step()
-                .map(|(row, col, value)| Cell { row, col, value })?,
+                .map(|(row, col, value)| Field { row, col, value })?,
         )
     }
 }
