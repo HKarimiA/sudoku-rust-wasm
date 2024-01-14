@@ -81,7 +81,7 @@ mod tests {
     fn test_sudoku_incorrect_fields() {
         let mut sudoku = Sudoku::new();
         assert_eq!(sudoku.incorrect_fields(), Vec::<(usize, usize)>::new());
-        sudoku.display_sudoku[0][0] = 1;
+        sudoku.display_sudoku[0][0] = sudoku.complete_sudoku[0][0] + 1;
         assert_eq!(sudoku.incorrect_fields(), vec![(0, 0)]);
     }
 }
