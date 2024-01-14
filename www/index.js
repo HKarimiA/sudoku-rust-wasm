@@ -63,7 +63,7 @@ document.getElementsByClassName("button-next-step")[0].onclick = function () {
   const nextStep = sudoku.next_step();
   if (!nextStep) {
     if (sudoku.has_won()) {
-      alert("Cangratulations! You won!");
+      alert("Congratulations! You won!");
     } else {
       alert("Next step not found! Check if all your numbers are correct.");
     }
