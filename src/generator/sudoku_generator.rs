@@ -1,4 +1,4 @@
-use crate::generator::generator::tools::find_possible_numbers;
+use crate::generator::generator_tools::tools::find_possible_numbers;
 use rand::Rng;
 
 pub struct SudokuGenerator {
@@ -31,7 +31,7 @@ impl SudokuGenerator {
         while self.filled_fields < 81 {
             let (row, col, number) = self.find_first_field_to_fill();
             self.fields[row][col] = number;
-            self.filled_fields = self.filled_fields + 1;
+            self.filled_fields += 1;
         }
     }
 

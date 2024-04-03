@@ -15,6 +15,12 @@ pub struct Sudoku {
     sudoku: models::sudoku::Sudoku,
 }
 
+impl Default for Sudoku {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[wasm_bindgen]
 impl Sudoku {
     #[wasm_bindgen(constructor)]
@@ -29,7 +35,7 @@ impl Sudoku {
             .puzzle_sudoku
             .iter()
             .flatten()
-            .map(|x| *x)
+            .copied()
             .collect::<Vec<u8>>()
     }
 
@@ -50,10 +56,7 @@ impl Sudoku {
     }
 
     pub fn next_step(&mut self) -> Option<Field> {
-        Some(
-            self.sudoku
-                .next_step()
-                .map(|(row, col, value)| Field { row, col, value })?,
-        )
+        let (row, col, value) = self.sudoku.next_step()?;
+        Some(Field { row, col, value })
     }
 }

@@ -1,4 +1,4 @@
-use crate::generator::generator::tools::find_possible_numbers;
+use crate::generator::generator_tools::tools::find_possible_numbers;
 use crate::generator::puzzle_generator::PuzzleGenerator;
 use crate::generator::sudoku_generator::SudokuGenerator;
 

@@ -1,4 +1,4 @@
-use crate::generator::generator::tools::find_possible_numbers;
+use crate::generator::generator_tools::tools::find_possible_numbers;
 use rand::Rng;
 
 pub struct PuzzleGenerator<'a> {
@@ -30,8 +30,8 @@ impl PuzzleGenerator<'_> {
         }
     }
 
-    fn is_solvable(puzzle_fields: &Vec<Vec<u8>>) -> bool {
-        let mut puzzle = puzzle_fields.clone();
+    fn is_solvable(puzzle_fields: &[Vec<u8>]) -> bool {
+        let mut puzzle = puzzle_fields.to_owned();
 
         let mut counter = puzzle.iter().flatten().filter(|&&x| x != 0).count();
         while counter < 81 {
