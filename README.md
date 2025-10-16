@@ -18,7 +18,7 @@ This project is a simple yet challenging Sudoku game. It generates random Sudoku
 
 ## 🚴 Usage
 
-This project uses WebAssembly to deliver an efficient and seamless Sudoku gaming experience directly within the browser. Simply access the hosted version temporarily available at https://hkarimi.rf.gd to enjoy solving Sudoku puzzles online.
+This project uses WebAssembly to deliver an efficient and seamless Sudoku gaming experience directly within the browser.
 
 ### 🐑 Clone the repository
 
